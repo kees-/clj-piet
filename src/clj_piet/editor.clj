@@ -1,7 +1,7 @@
 (ns clj-piet.editor
   (:import javax.swing.JFrame)
   (:import java.awt.Color)
-  (:require [clj-piet.interpreter :as interpreter :only (colours)]))
+  (:require [clj-piet.interpreter :as interpreter :only [colours]]))
 
 (def colours (map (partial map #(eval `(Color. ~@%)))
                   (partition 6 (keys interpreter/colours))))

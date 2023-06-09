@@ -1,6 +1,6 @@
 (ns clj-piet.core
-  (:use [clj-piet.interpreter :only (piet-interpreter)])
+  (:require [clj-piet.interpreter :refer [piet-interpreter]])
   (:gen-class))
 
-(defn -main [image codel-size]
+(defn -main [{:keys [image codel-size]}]
   (piet-interpreter image (read-string codel-size)))
