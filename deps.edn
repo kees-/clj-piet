@@ -1,6 +1,6 @@
 {:paths ["src"]
  :deps {}
- :aliases {:run {:exec-fn clj-piet.core/-main}
-           :sample {:exec-fn clj-piet.core/-main
+ :aliases {:run {:exec-fn clj-piet.main/piet}
+           :sample {:exec-fn clj-piet.main/piet
                     :exec-args {:image "programs/pietfac.png"
-                                :codel-size "25"}}}}
+                                :codel-size 25}}}}
