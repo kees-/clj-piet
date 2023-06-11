@@ -32,7 +32,7 @@
   (piet-update m #(if (< %1 %2) 1 0) 2))
 
 (defn rotate [n coll]
-  (if (zero? n)
+  (if (or (nil? n) (zero? n))
     coll
     (if (pos? n)
       (->> coll cycle (drop 1) (take (count coll)) (rotate (dec n)))

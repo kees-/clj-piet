@@ -7,5 +7,5 @@
                   :main-opts ["-m" "cognitect.test-runner"]
                   :exec-fn cognitect.test-runner.api/test}
            :sample {:exec-fn clj-piet.main/piet
-                    :exec-args {:image "programs/pietfac.png"
+                    :exec-args {:image "programs/factorial.png"
                                 :codel-size 25}}}}
