@@ -3,9 +3,9 @@
 (defn piet-push [m]
   (update m :stack (partial cons (:value m))))
 
-(defn piet-update [m f n]
-  (piet-push (update (->> m :stack (take n) reverse (apply f) (assoc m :value))
-                     :stack nthnext n)))
+(defn- piet-update [m f n]
+  (let [new-m (->> m :stack (take n) reverse (apply f) (assoc m :value))]
+    (piet-push (update new-m :stack nthnext n))))
 
 (defn piet-pop [m]
   (update m :stack next))
@@ -23,7 +23,7 @@
   (piet-update m (comp int /) 2))
 
 (defn piet-mod [m]
-  (piet-update m clojure.core/mod 2))
+  (piet-update m mod 2))
 
 (defn piet-not [m]
   (piet-update m #(if (zero? %) 1 0) 1))

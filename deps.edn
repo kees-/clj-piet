@@ -1,6 +1,11 @@
 {:paths ["src"]
  :deps {}
  :aliases {:run {:exec-fn clj-piet.main/piet}
+           :test {:extra-paths ["test"]
+                  :extra-deps {io.github.cognitect-labs/test-runner {:git/tag "v0.5.1"
+                                                                     :git/sha "dfb30dd"}}
+                  :main-opts ["-m" "cognitect.test-runner"]
+                  :exec-fn cognitect.test-runner.api/test}
            :sample {:exec-fn clj-piet.main/piet
                     :exec-args {:image "programs/pietfac.png"
                                 :codel-size 25}}}}
